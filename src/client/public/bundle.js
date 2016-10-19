@@ -68,25 +68,30 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	  }
 	
 	  _createClass(App, [{
+	    key: 'tab',
+	    value: function tab(event) {
+	      if (event.keyCode === 9) {
+	        console.log('Tab-key pressed');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return (
-	        // <p> Hello React!</p>
+	      var pad = document.getElementById('pad');
+	      return _react2.default.createElement(
+	        'section',
+	        { className: 'row' },
 	        _react2.default.createElement(
-	          'section',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'textarea',
-	            { className: 'col-md-6 full-height', id: 'pad' },
-	            'Test code here'
-	          )
+	          'textarea',
+	          { className: 'col-md-6 full-height', id: 'pad', onKeyDown: this.tab },
+	          'Test code here'
 	        )
 	      );
 	    }
