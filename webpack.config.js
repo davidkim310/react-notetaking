@@ -16,6 +16,10 @@ var config = {
       test : /\.js?/,
       include : APP_DIR,
       loader : 'babel'
+    },
+    {
+      test: /\.css$/,
+      loader: "style!css"
     }
     ]
   }

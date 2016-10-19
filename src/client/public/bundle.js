@@ -71,7 +71,11 @@
 	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	    //  stores our text
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+	    _this.state = { textAreaVal: '' };
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
@@ -82,15 +86,22 @@
 	      }
 	    }
 	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(event) {
+	      this.setState({
+	        textAreaVal: event.target.value
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var pad = document.getElementById('pad');
+	      console.log(this.state.textAreaVal);
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'textarea',
-	          { className: 'col-md-6 full-height', id: 'pad', onKeyDown: this.tab },
+	          { className: 'col-md-6 full-height', id: 'pad', onKeyDown: this.tab, onChange: this.handleChange.bind(this) },
 	          'Test code here'
 	        )
 	      );
